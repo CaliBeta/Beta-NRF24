@@ -1993,6 +1993,22 @@ SOT-23-5 package, no indicator LED but with adjustable current, small and very i
 <text x="0" y="2.921" size="1.27" layer="25" ratio="10" rot="R180" align="center">&gt;NAME</text>
 <text x="0" y="-2.794" size="1.27" layer="27" ratio="10" align="center">&gt;VALUE</text>
 </package>
+<package name="DO-214AC" urn="urn:adsk.eagle:footprint:14345459/2" library_version="25">
+<wire x1="-2.3" y1="1.2" x2="2.3" y2="1.2" width="0.15" layer="21"/>
+<wire x1="2.3" y1="1.2" x2="2.3" y2="-1.2" width="0.15" layer="51"/>
+<wire x1="2.3" y1="-1.2" x2="-2.3" y2="-1.2" width="0.15" layer="21"/>
+<wire x1="-2.3" y1="-1.2" x2="-2.3" y2="1.2" width="0.15" layer="51"/>
+<wire x1="-0.8" y1="0" x2="0.25" y2="0.75" width="0.15" layer="21"/>
+<wire x1="0.25" y1="0.75" x2="0.25" y2="-0.7" width="0.15" layer="21"/>
+<wire x1="0.25" y1="-0.7" x2="-0.8" y2="0" width="0.15" layer="21"/>
+<smd name="K" x="-2.05" y="0" dx="1.8" dy="1.7" layer="1"/>
+<smd name="A" x="2.05" y="0" dx="1.8" dy="1.7" layer="1"/>
+<text x="0.027" y="2.173" size="1.27" layer="25" ratio="10" align="center">&gt;NAME</text>
+<text x="0.027" y="-2.171" size="1.27" layer="27" ratio="10" align="center">&gt;VALUE</text>
+<rectangle x1="-2.6" y1="-0.7" x2="-2.35" y2="0.65" layer="51"/>
+<rectangle x1="2.35" y1="-0.7" x2="2.6" y2="0.65" layer="51"/>
+<rectangle x1="-1" y1="-1.15" x2="-0.7" y2="1.15" layer="21"/>
+</package>
 </packages>
 <packages3d>
 <package3d name="LED0805-ROJO" urn="urn:adsk.eagle:package:14345485/3" type="model" library_version="25">
@@ -2013,6 +2029,11 @@ SOT-23-5 package, no indicator LED but with adjustable current, small and very i
 <package3d name="LED-3MM" urn="urn:adsk.eagle:package:14861969/2" type="model" library_version="25">
 <packageinstances>
 <packageinstance name="LED-3MM"/>
+</packageinstances>
+</package3d>
+<package3d name="DO-214AC" urn="urn:adsk.eagle:package:14345492/2" type="model" library_version="25">
+<packageinstances>
+<packageinstance name="DO-214AC"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -2040,6 +2061,21 @@ SOT-23-5 package, no indicator LED but with adjustable current, small and very i
 <vertex x="-2.921" y="-2.413"/>
 <vertex x="-2.413" y="-2.921"/>
 </polygon>
+</symbol>
+<symbol name="SCHOTTKY" urn="urn:adsk.eagle:symbol:14345454/2" library_version="25">
+<wire x1="0" y1="-1.27" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="0" y2="1.27" width="0.254" layer="94"/>
+<wire x1="3.175" y1="1.27" x2="2.54" y2="1.27" width="0.254" layer="94"/>
+<wire x1="2.54" y1="1.27" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="1.27" x2="0" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="2.54" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="3.175" y1="1.27" x2="3.175" y2="1.016" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-1.27" x2="1.905" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.905" y1="-1.016" x2="1.905" y2="-1.27" width="0.254" layer="94"/>
+<text x="-1.016" y="1.905" size="1.778" layer="95">&gt;NAME</text>
+<text x="-1.016" y="-3.429" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="A" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
+<pin name="K" x="5.08" y="0" visible="off" length="short" direction="pas" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -2099,6 +2135,131 @@ SOT-23-5 package, no indicator LED but with adjustable current, small and very i
 </device>
 </devices>
 </deviceset>
+<deviceset name="SS14" urn="urn:adsk.eagle:component:14345499/3" prefix="D" library_version="25">
+<description>Diodo de barrera Schottky (1N5819 SMD) &lt;b&gt;(VRRM):&lt;/b&gt; 40V, &lt;b&gt;IRMS:&lt;/b&gt; 1A</description>
+<gates>
+<gate name="G$1" symbol="SCHOTTKY" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="DO-214AC">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="K" pad="K"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:14345492/2"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+<library name="SparkFun-IC-Power" urn="urn:adsk.eagle:library:526">
+<description>&lt;h3&gt;SparkFun Power Driver and Management ICs&lt;/h3&gt;
+In this library you'll find anything that has to do with power delivery, or making power supplies.
+&lt;p&gt;Contents:
+&lt;ul&gt;&lt;li&gt;LDOs&lt;/li&gt;
+&lt;li&gt;Boost/Buck controllers&lt;/li&gt;
+&lt;li&gt;Charge pump controllers&lt;/li&gt;
+&lt;li&gt;Power sequencers&lt;/li&gt;
+&lt;li&gt;Power switches&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;br&gt;
+We've spent an enormous amount of time creating and checking these footprints and parts, but it is &lt;b&gt; the end user's responsibility&lt;/b&gt; to ensure correctness and suitablity for a given componet or application. 
+&lt;br&gt;
+&lt;br&gt;If you enjoy using this library, please buy one of our products at &lt;a href=" www.sparkfun.com"&gt;SparkFun.com&lt;/a&gt;.
+&lt;br&gt;
+&lt;br&gt;
+&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
+&lt;br&gt;
+&lt;br&gt;
+You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<packages>
+<package name="SOT23-5" urn="urn:adsk.eagle:footprint:39006/1" library_version="1">
+<description>&lt;b&gt;Small Outline Transistor&lt;/b&gt;</description>
+<wire x1="1.27" y1="0.4294" x2="1.27" y2="-0.4294" width="0.2032" layer="21"/>
+<wire x1="1.4" y1="-0.8" x2="-1.4" y2="-0.8" width="0.1524" layer="51"/>
+<wire x1="-1.27" y1="-0.4294" x2="-1.27" y2="0.4294" width="0.2032" layer="21"/>
+<wire x1="-1.4" y1="0.8" x2="1.4" y2="0.8" width="0.1524" layer="51"/>
+<wire x1="-0.2684" y1="0.7088" x2="0.2684" y2="0.7088" width="0.2032" layer="21"/>
+<wire x1="1.4" y1="0.8" x2="1.4" y2="-0.8" width="0.1524" layer="51"/>
+<wire x1="-1.4" y1="0.8" x2="-1.4" y2="-0.8" width="0.1524" layer="51"/>
+<rectangle x1="-1.2" y1="-1.5" x2="-0.7" y2="-0.85" layer="51"/>
+<rectangle x1="-0.25" y1="-1.5" x2="0.25" y2="-0.85" layer="51"/>
+<rectangle x1="0.7" y1="-1.5" x2="1.2" y2="-0.85" layer="51"/>
+<rectangle x1="0.7" y1="0.85" x2="1.2" y2="1.5" layer="51"/>
+<rectangle x1="-1.2" y1="0.85" x2="-0.7" y2="1.5" layer="51"/>
+<smd name="1" x="-0.95" y="-1.3001" dx="0.55" dy="1.2" layer="1"/>
+<smd name="2" x="0" y="-1.3001" dx="0.55" dy="1.2" layer="1"/>
+<smd name="3" x="0.95" y="-1.3001" dx="0.55" dy="1.2" layer="1"/>
+<smd name="4" x="0.95" y="1.3001" dx="0.55" dy="1.2" layer="1"/>
+<smd name="5" x="-0.95" y="1.3001" dx="0.55" dy="1.2" layer="1"/>
+<text x="-0.889" y="2.159" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-0.9525" y="-0.1905" size="0.4064" layer="27">&gt;VALUE</text>
+<circle x="-1.6002" y="-1.016" radius="0.127" width="0" layer="21"/>
+</package>
+</packages>
+<packages3d>
+<package3d name="SOT23-5" urn="urn:adsk.eagle:package:39060/1" type="box" library_version="1">
+<description>Small Outline Transistor</description>
+<packageinstances>
+<packageinstance name="SOT23-5"/>
+</packageinstances>
+</package3d>
+</packages3d>
+<symbols>
+<symbol name="SPX3819" urn="urn:adsk.eagle:symbol:39052/1" library_version="1">
+<description>&lt;h3&gt;SPX3819 Voltage Regulator&lt;/h3&gt;
+&lt;p&gt;[Few-sentence description of part(s)&lt;/p&gt;</description>
+<wire x1="-7.62" y1="-7.62" x2="5.08" y2="-7.62" width="0.4064" layer="94"/>
+<wire x1="5.08" y1="-7.62" x2="5.08" y2="7.62" width="0.4064" layer="94"/>
+<wire x1="5.08" y1="7.62" x2="-7.62" y2="7.62" width="0.4064" layer="94"/>
+<wire x1="-7.62" y1="7.62" x2="-7.62" y2="-7.62" width="0.4064" layer="94"/>
+<pin name="BP" x="7.62" y="-5.08" visible="pin" length="short" direction="in" rot="R180"/>
+<pin name="EN" x="-10.16" y="-5.08" visible="pin" length="short" direction="in"/>
+<pin name="GND" x="-10.16" y="0" visible="pin" length="short" direction="in"/>
+<pin name="IN" x="-10.16" y="5.08" visible="pin" length="short" direction="in"/>
+<pin name="OUT" x="7.62" y="5.08" visible="pin" length="short" direction="pas" rot="R180"/>
+<text x="-7.62" y="8.128" size="1.778" layer="95" font="vector">&gt;NAME</text>
+<text x="-7.62" y="-8.128" size="1.778" layer="96" font="vector" align="top-left">&gt;VALUE</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="V_REG_SPX3819" urn="urn:adsk.eagle:component:39099/1" library_version="1">
+<description>&lt;h3&gt;SPX3819 Voltage Regulator&lt;/h3&gt;
+&lt;p&gt; 3.3V 500mA, 16V input&lt;/p&gt;
+&lt;p&gt;&lt;a href=”https://www.exar.com/content/document.ashx?id=22106”&gt;Datasheet&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;SparkFun Products:&lt;/b&gt;
+&lt;ul&gt;&lt;li&gt;&lt;a href=”https://www.sparkfun.com/products/13911”&gt;SparkFun Serial Controlled Motor Driver&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<gates>
+<gate name="G$1" symbol="SPX3819" x="0" y="0"/>
+</gates>
+<devices>
+<device name="-SOT23-5" package="SOT23-5">
+<connects>
+<connect gate="G$1" pin="BP" pad="4"/>
+<connect gate="G$1" pin="EN" pad="3"/>
+<connect gate="G$1" pin="GND" pad="2"/>
+<connect gate="G$1" pin="IN" pad="1"/>
+<connect gate="G$1" pin="OUT" pad="5"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:39060/1"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="PROD_ID" value="VREG-13321" constant="no"/>
+<attribute name="VALUE" value="SPX3819M5_3_3" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -2147,18 +2308,33 @@ SOT-23-5 package, no indicator LED but with adjustable current, small and very i
 <part name="GND11" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="P+3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V+" device=""/>
 <part name="GND10" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="IC3" library="SparkFun-IC-Power" library_urn="urn:adsk.eagle:library:526" deviceset="V_REG_SPX3819" device="-SOT23-5" package3d_urn="urn:adsk.eagle:package:39060/1" value="SPX3819M5_3_3"/>
+<part name="D1" library="CaliBeta-Diodos" library_urn="urn:adsk.eagle:library:14345451" deviceset="SS14" device="" package3d_urn="urn:adsk.eagle:package:14345492/2"/>
+<part name="P+4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V+" device=""/>
+<part name="P+5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
+<part name="C2" library="CaliBeta-RCL" library_urn="urn:adsk.eagle:library:14345719" deviceset="CAP" device="C0805" package3d_urn="urn:adsk.eagle:package:14345754/1" value="10uF"/>
+<part name="GND12" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="+3V7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
+<part name="C3" library="CaliBeta-RCL" library_urn="urn:adsk.eagle:library:14345719" deviceset="CAP" device="C0805" package3d_urn="urn:adsk.eagle:package:14345754/1" value="10uF"/>
+<part name="GND13" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND14" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="R5" library="CaliBeta-RCL" library_urn="urn:adsk.eagle:library:14345719" deviceset="RESISTOR_" device="R0805" package3d_urn="urn:adsk.eagle:package:14345749/1" value="1k"/>
+<part name="P+6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 <text x="56.896" y="126.238" size="3.81" layer="94" ratio="10" align="center">MCU STM32F030K6</text>
-<wire x1="93.98" y1="129.032" x2="93.98" y2="43.18" width="0.4064" layer="94" style="longdash"/>
+<wire x1="93.98" y1="129.032" x2="93.98" y2="57.15" width="0.4064" layer="94" style="longdash"/>
 <text x="138.176" y="126.238" size="3.81" layer="94" ratio="10" align="center">MODULO NRF24L01</text>
+<wire x1="93.98" y1="57.15" x2="93.98" y2="43.18" width="0.4064" layer="94" style="longdash"/>
 <wire x1="93.98" y1="43.18" x2="93.98" y2="25.4" width="0.4064" layer="94" style="longdash"/>
 <wire x1="5.588" y1="43.18" x2="93.98" y2="43.18" width="0.4064" layer="94" style="longdash"/>
 <wire x1="93.98" y1="91.44" x2="179.832" y2="91.44" width="0.4064" layer="94" style="longdash"/>
 <text x="72.136" y="34.798" size="3.81" layer="94" ratio="10" align="center">CARGADOR
 BATERIA</text>
+<text x="138.176" y="88.138" size="3.81" layer="94" ratio="10" align="center">REGULADOR 3V3</text>
+<wire x1="93.98" y1="57.15" x2="179.832" y2="57.15" width="0.4064" layer="94" style="longdash"/>
 </plain>
 <instances>
 <instance part="U$1" gate="G$1" x="0" y="0" smashed="yes">
@@ -2285,6 +2461,47 @@ BATERIA</text>
 <instance part="GND10" gate="1" x="53.34" y="7.62" smashed="yes">
 <attribute name="VALUE" x="50.8" y="5.08" size="1.778" layer="96"/>
 </instance>
+<instance part="IC3" gate="G$1" x="142.24" y="71.12" smashed="yes">
+<attribute name="NAME" x="139.7" y="79.248" size="1.778" layer="95" font="vector"/>
+<attribute name="VALUE" x="132.08" y="62.992" size="1.778" layer="96" font="vector" align="top-left"/>
+</instance>
+<instance part="D1" gate="G$1" x="106.68" y="76.2" smashed="yes">
+<attribute name="NAME" x="105.664" y="78.105" size="1.778" layer="95"/>
+<attribute name="VALUE" x="105.664" y="72.771" size="1.778" layer="96"/>
+</instance>
+<instance part="P+4" gate="1" x="101.6" y="81.28" smashed="yes">
+<attribute name="VALUE" x="103.378" y="84.074" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="P+5" gate="1" x="114.3" y="81.28" smashed="yes">
+<attribute name="VALUE" x="111.76" y="82.042" size="1.778" layer="96"/>
+</instance>
+<instance part="C2" gate="G$1" x="114.3" y="71.12" smashed="yes">
+<attribute name="NAME" x="115.316" y="71.755" size="1.778" layer="95"/>
+<attribute name="VALUE" x="115.316" y="66.929" size="1.778" layer="96"/>
+</instance>
+<instance part="GND12" gate="1" x="114.3" y="60.96" smashed="yes">
+<attribute name="VALUE" x="111.76" y="58.42" size="1.778" layer="96"/>
+</instance>
+<instance part="+3V7" gate="G$1" x="157.48" y="81.28" smashed="yes">
+<attribute name="VALUE" x="154.432" y="81.788" size="1.778" layer="96"/>
+</instance>
+<instance part="C3" gate="G$1" x="157.48" y="71.12" smashed="yes">
+<attribute name="NAME" x="158.496" y="71.755" size="1.778" layer="95"/>
+<attribute name="VALUE" x="158.496" y="66.929" size="1.778" layer="96"/>
+</instance>
+<instance part="GND13" gate="1" x="157.48" y="60.96" smashed="yes">
+<attribute name="VALUE" x="154.94" y="58.42" size="1.778" layer="96"/>
+</instance>
+<instance part="GND14" gate="1" x="127" y="71.12" smashed="yes" rot="R270">
+<attribute name="VALUE" x="124.46" y="73.66" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="R5" gate="G$1" x="170.18" y="71.12" smashed="yes" rot="R270">
+<attribute name="NAME" x="171.45" y="72.6186" size="1.778" layer="95"/>
+<attribute name="VALUE" x="171.196" y="69.85" size="1.778" layer="96"/>
+</instance>
+<instance part="P+6" gate="1" x="170.18" y="81.28" smashed="yes">
+<attribute name="VALUE" x="167.64" y="82.042" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -2321,6 +2538,15 @@ BATERIA</text>
 <pinref part="IC1" gate="IC$1" pin="VDDA"/>
 <wire x1="48.26" y1="114.3" x2="48.26" y2="116.84" width="0.1524" layer="91"/>
 <pinref part="+3V6" gate="G$1" pin="+3V3"/>
+</segment>
+<segment>
+<pinref part="+3V7" gate="G$1" pin="+3V3"/>
+<pinref part="IC3" gate="G$1" pin="OUT"/>
+<wire x1="157.48" y1="78.74" x2="157.48" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="76.2" x2="149.86" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="C3" gate="G$1" pin="1"/>
+<wire x1="157.48" y1="73.66" x2="157.48" y2="76.2" width="0.1524" layer="91"/>
+<junction x="157.48" y="76.2"/>
 </segment>
 </net>
 <net name="AN0" class="0">
@@ -2596,6 +2822,21 @@ BATERIA</text>
 <wire x1="53.34" y1="10.16" x2="53.34" y2="15.24" width="0.1524" layer="91"/>
 <junction x="53.34" y="15.24"/>
 </segment>
+<segment>
+<pinref part="C2" gate="G$1" pin="2"/>
+<pinref part="GND12" gate="1" pin="GND"/>
+<wire x1="114.3" y1="63.5" x2="114.3" y2="66.04" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C3" gate="G$1" pin="2"/>
+<pinref part="GND13" gate="1" pin="GND"/>
+<wire x1="157.48" y1="63.5" x2="157.48" y2="66.04" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="IC3" gate="G$1" pin="GND"/>
+<pinref part="GND14" gate="1" pin="GND"/>
+<wire x1="129.54" y1="71.12" x2="132.08" y2="71.12" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="CE" class="0">
 <segment>
@@ -2650,6 +2891,22 @@ BATERIA</text>
 <pinref part="P+1" gate="1" pin="+5V"/>
 <wire x1="20.32" y1="35.56" x2="22.86" y2="35.56" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="P+5" gate="1" pin="+5V"/>
+<pinref part="D1" gate="G$1" pin="K"/>
+<wire x1="114.3" y1="78.74" x2="114.3" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="76.2" x2="111.76" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="IC3" gate="G$1" pin="IN"/>
+<wire x1="132.08" y1="76.2" x2="114.3" y2="76.2" width="0.1524" layer="91"/>
+<junction x="114.3" y="76.2"/>
+<pinref part="C2" gate="G$1" pin="1"/>
+<wire x1="114.3" y1="73.66" x2="114.3" y2="76.2" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R5" gate="G$1" pin="1"/>
+<pinref part="P+6" gate="1" pin="+5V"/>
+<wire x1="170.18" y1="78.74" x2="170.18" y2="76.2" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="N$8" class="0">
 <segment>
@@ -2668,6 +2925,12 @@ BATERIA</text>
 <wire x1="45.72" y1="22.86" x2="45.72" y2="20.32" width="0.1524" layer="91"/>
 <junction x="45.72" y="20.32"/>
 </segment>
+<segment>
+<pinref part="D1" gate="G$1" pin="A"/>
+<pinref part="P+4" gate="1" pin="V+"/>
+<wire x1="104.14" y1="76.2" x2="101.6" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="76.2" x2="101.6" y2="78.74" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="STAT" class="0">
 <segment>
@@ -2679,6 +2942,18 @@ BATERIA</text>
 <pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="43.18" y1="35.56" x2="45.72" y2="35.56" width="0.1524" layer="91"/>
 <label x="45.72" y="35.56" size="1.27" layer="95" ratio="10" xref="yes"/>
+</segment>
+</net>
+<net name="EN" class="0">
+<segment>
+<pinref part="IC3" gate="G$1" pin="EN"/>
+<wire x1="132.08" y1="66.04" x2="129.54" y2="66.04" width="0.1524" layer="91"/>
+<label x="129.54" y="66.04" size="1.27" layer="95" ratio="10" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="R5" gate="G$1" pin="2"/>
+<wire x1="170.18" y1="66.04" x2="170.18" y2="63.5" width="0.1524" layer="91"/>
+<label x="170.18" y="63.5" size="1.27" layer="95" ratio="10" rot="R270" xref="yes"/>
 </segment>
 </net>
 </nets>
