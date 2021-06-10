@@ -2676,18 +2676,6 @@ BATERIA</text>
 <label x="124.46" y="33.02" size="1.27" layer="95" ratio="10" rot="R270" xref="yes"/>
 </segment>
 </net>
-<net name="PA8" class="0">
-<segment>
-<pinref part="IC1" gate="IC$1" pin="PA8(MCO)"/>
-<wire x1="78.74" y1="78.74" x2="81.28" y2="78.74" width="0.1524" layer="91"/>
-<label x="81.28" y="78.74" size="1.27" layer="95" ratio="10" xref="yes"/>
-</segment>
-<segment>
-<pinref part="J2" gate="G$1" pin="2"/>
-<wire x1="172.72" y1="35.56" x2="172.72" y2="33.02" width="0.1524" layer="91"/>
-<label x="172.72" y="33.02" size="1.27" layer="95" ratio="10" rot="R270" xref="yes"/>
-</segment>
-</net>
 <net name="TX" class="0">
 <segment>
 <pinref part="IC1" gate="IC$1" pin="PA9(TX1/SCL1)"/>
@@ -2710,30 +2698,6 @@ BATERIA</text>
 <pinref part="J2" gate="G$1" pin="4"/>
 <wire x1="167.64" y1="35.56" x2="167.64" y2="33.02" width="0.1524" layer="91"/>
 <label x="167.64" y="33.02" size="1.27" layer="95" ratio="10" rot="R270" xref="yes"/>
-</segment>
-</net>
-<net name="PA11" class="0">
-<segment>
-<pinref part="IC1" gate="IC$1" pin="PA11(CTS)"/>
-<wire x1="78.74" y1="71.12" x2="81.28" y2="71.12" width="0.1524" layer="91"/>
-<label x="81.28" y="71.12" size="1.27" layer="95" ratio="10" xref="yes"/>
-</segment>
-<segment>
-<pinref part="J2" gate="G$1" pin="5"/>
-<wire x1="165.1" y1="35.56" x2="165.1" y2="33.02" width="0.1524" layer="91"/>
-<label x="165.1" y="33.02" size="1.27" layer="95" ratio="10" rot="R270" xref="yes"/>
-</segment>
-</net>
-<net name="PA12" class="0">
-<segment>
-<pinref part="IC1" gate="IC$1" pin="PA12(RTS)"/>
-<wire x1="78.74" y1="68.58" x2="81.28" y2="68.58" width="0.1524" layer="91"/>
-<label x="81.28" y="68.58" size="1.27" layer="95" ratio="10" xref="yes"/>
-</segment>
-<segment>
-<pinref part="J2" gate="G$1" pin="6"/>
-<wire x1="162.56" y1="35.56" x2="162.56" y2="33.02" width="0.1524" layer="91"/>
-<label x="162.56" y="33.02" size="1.27" layer="95" ratio="10" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="SWDIO" class="0">
@@ -2765,6 +2729,11 @@ BATERIA</text>
 <pinref part="IC1" gate="IC$1" pin="PA15(NSS)"/>
 <wire x1="78.74" y1="60.96" x2="81.28" y2="60.96" width="0.1524" layer="91"/>
 <label x="81.28" y="60.96" size="1.27" layer="95" ratio="10" xref="yes"/>
+</segment>
+<segment>
+<pinref part="MOD1" gate="G$1" pin="CSN"/>
+<wire x1="139.7" y1="109.22" x2="142.24" y2="109.22" width="0.1524" layer="91" style="longdash"/>
+<label x="142.24" y="109.22" size="1.27" layer="95" ratio="10" xref="yes"/>
 </segment>
 </net>
 <net name="RST" class="0">
@@ -2985,12 +2954,27 @@ BATERIA</text>
 <wire x1="139.7" y1="106.68" x2="142.24" y2="106.68" width="0.1524" layer="91" style="longdash"/>
 <label x="142.24" y="106.68" size="1.27" layer="95" ratio="10" xref="yes"/>
 </segment>
+<segment>
+<pinref part="IC1" gate="IC$1" pin="PA12(RTS)"/>
+<wire x1="78.74" y1="68.58" x2="81.28" y2="68.58" width="0.1524" layer="91"/>
+<label x="81.28" y="68.58" size="1.27" layer="95" ratio="10" xref="yes"/>
+</segment>
+<segment>
+<pinref part="J2" gate="G$1" pin="6"/>
+<wire x1="162.56" y1="35.56" x2="162.56" y2="33.02" width="0.1524" layer="91"/>
+<label x="162.56" y="33.02" size="1.27" layer="95" ratio="10" rot="R270" xref="yes"/>
+</segment>
 </net>
 <net name="CSN" class="0">
 <segment>
-<pinref part="MOD1" gate="G$1" pin="CSN"/>
-<wire x1="139.7" y1="109.22" x2="142.24" y2="109.22" width="0.1524" layer="91" style="longdash"/>
-<label x="142.24" y="109.22" size="1.27" layer="95" ratio="10" xref="yes"/>
+<pinref part="IC1" gate="IC$1" pin="PA11(CTS)"/>
+<wire x1="78.74" y1="71.12" x2="81.28" y2="71.12" width="0.1524" layer="91"/>
+<label x="81.28" y="71.12" size="1.27" layer="95" ratio="10" xref="yes"/>
+</segment>
+<segment>
+<pinref part="J2" gate="G$1" pin="5"/>
+<wire x1="165.1" y1="35.56" x2="165.1" y2="33.02" width="0.1524" layer="91"/>
+<label x="165.1" y="33.02" size="1.27" layer="95" ratio="10" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="IRQ" class="0">
@@ -2998,6 +2982,16 @@ BATERIA</text>
 <pinref part="MOD1" gate="G$1" pin="IRQ"/>
 <wire x1="139.7" y1="119.38" x2="142.24" y2="119.38" width="0.1524" layer="91" style="longdash"/>
 <label x="142.24" y="119.38" size="1.27" layer="95" ratio="10" xref="yes"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="IC$1" pin="PA8(MCO)"/>
+<wire x1="78.74" y1="78.74" x2="81.28" y2="78.74" width="0.1524" layer="91"/>
+<label x="81.28" y="78.74" size="1.27" layer="95" ratio="10" xref="yes"/>
+</segment>
+<segment>
+<pinref part="J2" gate="G$1" pin="2"/>
+<wire x1="172.72" y1="35.56" x2="172.72" y2="33.02" width="0.1524" layer="91"/>
+<label x="172.72" y="33.02" size="1.27" layer="95" ratio="10" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="N$1" class="0">
